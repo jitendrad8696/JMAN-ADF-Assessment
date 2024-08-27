@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Consolidated_Orders",
-				"folderPath": "Orders",
+				"folderPath": "Q1/Orders",
 				"container": "consolidated"
 			},
 			"columnDelimiter": ",",

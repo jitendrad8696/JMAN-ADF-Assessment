@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "Consolidated_Customers",
-				"folderPath": "Customers",
+				"folderPath": "Q1/Customers",
 				"container": "consolidated"
 			},
 			"columnDelimiter": ",",

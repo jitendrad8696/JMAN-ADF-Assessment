@@ -1,0 +1,27 @@
+{
+	"name": "PL_Upload_Superstore_Data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Upload Superstore Data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"enableStaging": false
+				}
+			}
+		],
+		"folder": {
+			"name": "DWH/Q2/01_Staging"
+		},
+		"annotations": []
+	}
+}
