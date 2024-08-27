@@ -1,9 +1,9 @@
 {
-	"name": "PL_Upload_Superstore_Data",
+	"name": "PL_Load_Superstore_Data",
 	"properties": {
 		"activities": [
 			{
-				"name": "Upload Superstore Data",
+				"name": "Load Superstore Data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,14 +16,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "ExcelSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
