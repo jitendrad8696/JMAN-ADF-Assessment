@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "DWH/01_Staging/03_SQL"
+			"name": "DWH/Q1/01_Staging/03_SQL"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",

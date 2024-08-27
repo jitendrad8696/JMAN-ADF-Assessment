@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "DWH/01_Staging/01_Input"
+			"name": "DWH/Q1/01_Staging/01_Input"
 		},
 		"annotations": [],
 		"type": "Excel",

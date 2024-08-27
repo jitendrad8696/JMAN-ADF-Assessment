@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "DWH/01_Staging/02_Consolidated"
+			"name": "DWH/Q1/01_Staging/02_Consolidated"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
