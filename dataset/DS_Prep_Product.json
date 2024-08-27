@@ -5,6 +5,9 @@
 			"referenceName": "LS_SQL_Database",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "DWH/Q2/02_Prep"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
