@@ -1,0 +1,16 @@
+{
+	"name": "DS_Prep_Temp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_Database",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "q1.prep",
+			"table": "temp"
+		}
+	}
+}
