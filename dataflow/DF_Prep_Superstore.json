@@ -1,0 +1,377 @@
+{
+	"name": "DF_Prep_Superstore",
+	"properties": {
+		"folder": {
+			"name": "DWH/Q2/01_Prep"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_SQL_Superstore",
+						"type": "DatasetReference"
+					},
+					"name": "superstore"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_SQL_Superstore",
+						"type": "DatasetReference"
+					},
+					"name": "superstore2"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_SQL_Superstore",
+						"type": "DatasetReference"
+					},
+					"name": "superstore3"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_SQL_Superstore",
+						"type": "DatasetReference"
+					},
+					"name": "superstore4"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_Prep_Customer",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_Prep_Order_Address",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_Prep_Product",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_Prep_Orders",
+						"type": "DatasetReference"
+					},
+					"name": "sink4"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select2"
+				},
+				{
+					"name": "select3",
+					"description": "Renaming superstore3 to select3 with columns 'Customer ID, Customer Name"
+				},
+				{
+					"name": "aggregate1",
+					"description": "Aggregating data by 'Customer ID, Customer Name, Country' producing columns 'ID'"
+				},
+				{
+					"name": "select4"
+				},
+				{
+					"name": "aggregate2"
+				},
+				{
+					"name": "select5"
+				},
+				{
+					"name": "select6"
+				},
+				{
+					"name": "aggregate3"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "select7"
+				},
+				{
+					"name": "select8"
+				},
+				{
+					"name": "select9"
+				},
+				{
+					"name": "aggregate4"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {Row ID} as string,",
+				"          {Order ID} as string,",
+				"          {Order Date} as string,",
+				"          {Ship Date} as string,",
+				"          {Ship Mode} as string,",
+				"          {Customer ID} as string,",
+				"          {Customer Name} as string,",
+				"          Segment as string,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          {Postal Code} as string,",
+				"          Region as string,",
+				"          {Product ID} as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          {Product Name} as string,",
+				"          Sales as float,",
+				"          Quantity as integer,",
+				"          Discount as float,",
+				"          Profit as float",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> superstore",
+				"source(output(",
+				"          {Row ID} as string,",
+				"          {Order ID} as string,",
+				"          {Order Date} as string,",
+				"          {Ship Date} as string,",
+				"          {Ship Mode} as string,",
+				"          {Customer ID} as string,",
+				"          {Customer Name} as string,",
+				"          Segment as string,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          {Postal Code} as string,",
+				"          Region as string,",
+				"          {Product ID} as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          {Product Name} as string,",
+				"          Sales as float,",
+				"          Quantity as integer,",
+				"          Discount as float,",
+				"          Profit as float",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> superstore2",
+				"source(output(",
+				"          {Row ID} as string,",
+				"          {Order ID} as string,",
+				"          {Order Date} as string,",
+				"          {Ship Date} as string,",
+				"          {Ship Mode} as string,",
+				"          {Customer ID} as string,",
+				"          {Customer Name} as string,",
+				"          Segment as string,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          {Postal Code} as string,",
+				"          Region as string,",
+				"          {Product ID} as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          {Product Name} as string,",
+				"          Sales as string,",
+				"          Quantity as string,",
+				"          Discount as string,",
+				"          Profit as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> superstore3",
+				"source(output(",
+				"          {Row ID} as string,",
+				"          {Order ID} as string,",
+				"          {Order Date} as string,",
+				"          {Ship Date} as string,",
+				"          {Ship Mode} as string,",
+				"          {Customer ID} as string,",
+				"          {Customer Name} as string,",
+				"          Segment as string,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          {Postal Code} as string,",
+				"          Region as string,",
+				"          {Product ID} as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          {Product Name} as string,",
+				"          Sales as string,",
+				"          Quantity as string,",
+				"          Discount as string,",
+				"          Profit as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> superstore4",
+				"superstore2 select(mapColumn(",
+				"          {Product ID},",
+				"          Category,",
+				"          {Sub-Category},",
+				"          {Product Name},",
+				"          Sales,",
+				"          Quantity,",
+				"          Discount,",
+				"          Profit",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"superstore3 select(mapColumn(",
+				"          {Customer ID},",
+				"          {Customer Name},",
+				"          Segment,",
+				"          Country",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select3",
+				"select3 aggregate(groupBy({Customer ID},",
+				"          {Customer Name},",
+				"          Segment,",
+				"          Country),",
+				"     ID = max({Customer ID})) ~> aggregate1",
+				"superstore4 select(mapColumn(",
+				"          {Order ID},",
+				"          {Customer ID},",
+				"          Country,",
+				"          City,",
+				"          State,",
+				"          {Postal Code},",
+				"          Region",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select4",
+				"select4 aggregate(groupBy({Order ID},",
+				"          {Customer ID},",
+				"          Country,",
+				"          City,",
+				"          State,",
+				"          {Postal Code},",
+				"          Region),",
+				"     ID = max({Order ID})) ~> aggregate2",
+				"aggregate1 select(mapColumn(",
+				"          {Customer ID},",
+				"          {Customer Name},",
+				"          Segment,",
+				"          Country",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select5",
+				"aggregate2 select(mapColumn(",
+				"          {Order ID},",
+				"          {Customer ID},",
+				"          Country,",
+				"          City,",
+				"          State,",
+				"          {Postal Code},",
+				"          Region",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select6",
+				"select7 aggregate(groupBy({Product ID},",
+				"          Category,",
+				"          {Sub-Category},",
+				"          {Product Name},",
+				"          Price),",
+				"     ID = max({Product ID})) ~> aggregate3",
+				"select2 derive(Price = (Sales-Profit)/Quantity) ~> derivedColumn2",
+				"derivedColumn2 select(mapColumn(",
+				"          {Product ID},",
+				"          Category,",
+				"          {Sub-Category},",
+				"          {Product Name},",
+				"          Price",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select7",
+				"aggregate3 select(mapColumn(",
+				"          {Product ID},",
+				"          Category,",
+				"          {Sub-Category},",
+				"          {Product Name},",
+				"          Price",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select8",
+				"superstore select(mapColumn(",
+				"          {Order ID},",
+				"          {Order Date},",
+				"          {Ship Date},",
+				"          {Ship Mode},",
+				"          {Customer ID},",
+				"          {Product ID},",
+				"          Sales,",
+				"          Quantity,",
+				"          Discount,",
+				"          Profit",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select9",
+				"select9 aggregate(groupBy({Order ID},",
+				"          {Product ID},",
+				"          {Order Date},",
+				"          {Ship Date},",
+				"          {Ship Mode},",
+				"          {Customer ID},",
+				"          Sales,",
+				"          Quantity,",
+				"          Discount,",
+				"          Profit),",
+				"     ID = max({Order ID})) ~> aggregate4",
+				"select5 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"select6 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2",
+				"select8 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink3",
+				"aggregate4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink4"
+			]
+		}
+	}
+}

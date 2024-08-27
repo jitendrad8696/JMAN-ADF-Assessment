@@ -1,0 +1,16 @@
+{
+	"name": "DS_Prep_Product",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_Database",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "q2.prep",
+			"table": "product"
+		}
+	}
+}
