@@ -1,0 +1,16 @@
+{
+	"name": "DS_SQL_Superstore",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_Database",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "q2.staging",
+			"table": "superstore"
+		}
+	}
+}
